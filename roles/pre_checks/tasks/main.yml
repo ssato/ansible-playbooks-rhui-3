@@ -1,8 +1,7 @@
 ---
-
 - include: hw_requirements.yml
 - include: sw_requirements.yml
 - include: nw_requirements.yml
-- include: other_checks.yml
+- include: others.yml
 
 # vim:sw=2:ts=2:et:
