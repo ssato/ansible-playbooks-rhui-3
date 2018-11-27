@@ -1,0 +1,18 @@
+---
+- name: Check if the number of CPUs are enough
+  assert:
+    that:
+      - "{{ ansible_processor_vcpus }} >= {{ rhui_hw_req_min_ncpus }}"
+
+- name: Check if the size of the RAM is enough
+  assert:
+    that:
+      - "{{ ansible_memtotal_mb }} >= {{ rhui_hw_req_min_ram }}"
+
+- name: Check if the size of the / partition is enough
+  assert:
+    that:
+      - "{{ item.mount }} != '/' or {{ item.size_total }} >= {{ rhui_hw_req_min_disk_part_sysroot }} * (1024 ** 3)"
+  loop: "{{ ansible_mounts }}"
+
+# vim:sw=2:ts=2:et:

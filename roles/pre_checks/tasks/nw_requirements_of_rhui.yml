@@ -1,0 +1,24 @@
+---
+- name: Gather the status of network service ports
+  shell: "nmap -Pn $(hostname -f)"
+  ignore_errors: true
+  changed_when: false
+  register: nmap_scan_ports
+
+- name: Check if the required port is open by the firewall configuration
+  assert:
+    that:
+      - "{{ item in nmap_scan_ports.stdout_lines }}"
+  loop: {{ rhui_required_ports }}
+
+- name: Gather the FQDN info
+  command: "hostname -f"
+  ignore_errors: true
+  changed_when: false
+  register: hostname_fqdn
+
+- name:
+  assert:
+    that: "'{{ hostname_fqdn.stdout }}' == '{{ public_fqdn | default(inventory_hostname) }}'" 
+
+# vim:sw=2:ts=2:et:

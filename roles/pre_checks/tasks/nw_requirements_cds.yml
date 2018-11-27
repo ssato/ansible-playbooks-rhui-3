@@ -1,0 +1,14 @@
+---
+- name: Gather the status of network service ports
+  shell: "nmap -Pn $(hostname -f)"
+  ignore_errors: true
+  changed_when: false
+  register: nmap_scan_ports
+
+- name: Check if the required port is open by the firewall configuration
+  assert:
+    that:
+      - "{{ item }} in {{ nmap_scan_ports.stdout_lines }}"
+  loop: {{ required_ports }}
+
+# vim:sw=2:ts=2:et:

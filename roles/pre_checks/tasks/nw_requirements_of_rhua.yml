@@ -1,0 +1,24 @@
+---
+- assert:
+    that:
+      - "{{ rhua_entitlement_cert_path is defined }}"
+      - "{{ rhua_entitlement_cert_path | bool }}"
+
+- name: Check if the required port is open by the firewall configuration
+  assert:
+    that:
+      - "{{ item in nmap_scan_ports.stdout_lines }}"
+  loop: {{ rhua_required_ports }}
+
+- name: Try to connect to Red Hat CDN
+  command: "curl -v --connect-timeout 5 --max-time 20 --cacert /etc/rhsm/ca/redhat-uep.pem --cert {{ rhua_entitlement_cert_path }} {{ rhui_red_hat_cdn_check_url }}"
+  ignore_errors: true
+  changed_when: false
+  register: curl_check_redhat_cdn
+
+- name: Check of the access to the Red Hat CDN is OK
+  assert:
+    that:
+      - "{{ curl_check_redhat_cdn.rc == 0 }}"
+
+# vim:sw=2:ts=2:et:

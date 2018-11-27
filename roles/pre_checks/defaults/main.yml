@@ -1,0 +1,38 @@
+---
+# Requirements:
+# .. seealso:: https://access.redhat.com/documentation/en-us/red_hat_update_infrastructure/3.0/html/system_administrators_guide/prerequisites
+rhui_hw_req_min_ncpus: 2
+rhui_hw_req_min_ram: 4096
+rhui_hw_req_min_disk_part_sysroot: 20  # 10 GiB
+
+rhua_hw_req_min_disk_part_var: 20
+
+rhui_gluster_disk_part_brick: /export
+# 100 GiB (Actually, it depends on how many and what repos to provide for clients.)
+gluster_hw_req_min_disk_part_export: 100
+
+
+
+# .. seealso:: Table 3.1. Required Network Port Settings of the page of the above URL
+rhui_required_ports:
+  - "20/tcp"   # ssh
+  - "443/tcp"  # https
+
+rhua_required_ports:
+  - "8140/tcp"  # puppet
+
+cds_required_ports:
+  - "5000/tcp"  # docker registory
+
+gluster_required_ports:
+  - "24007/tcp"
+  - "49152/tcp"
+  - "49153/tcp"
+  - "49154/tcp"
+
+# Extra (un-documented) requirements:
+rhui_required_packages: []
+
+rhui_red_hat_cdn_check_url: https://cdn.redhat.com/content/dist/rhel/rhui/server/7/7Server/x86_64/os/repodata/repomd.xml
+
+# vim:sw=2:ts=2:et:

@@ -1,0 +1,12 @@
+---
+- include: hw_requirements_of_rhui.yml
+- include: hw_requirements_of_rhua.yml
+  when:
+    - 'rhua' in group_names
+
+- include: hw_requirements_of_gluster.yml
+  when:
+    - 'cds' in group_names
+    - 'gluster' in group_names
+
+# vim:sw=2:ts=2:et:

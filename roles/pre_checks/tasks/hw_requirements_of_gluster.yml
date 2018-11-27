@@ -1,0 +1,18 @@
+---
+- name: Check if the brick partition of for Gluster Storage exists
+  assert:
+    that: "{{ rhui_gluster_disk_part_brick in ansible_mounts | map(attribute='mount') }}"
+
+- name: Check if the size of the brick partition for Gluster Storage is enough
+  assert:
+    that:
+      - "'{{ item.mount }}' != '{{ rhui_gluster_disk_part_brick }}' or {{ item.size_total }} >= {{ gluster_hw_req_min_disk_part_export }} * (1024 ** 3)"
+  loop: "{{ ansible_mounts }}"
+
+- name: Check if the number of CDS == Gluster nodes are enough
+  assert:
+    that:
+      - "{{ groups['cds'] | length == 3 }}"
+      - "{{ groups['gluster'] | length == 3 }}"
+
+# vim:sw=2:ts=2:et:

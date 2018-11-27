@@ -1,0 +1,42 @@
+---
+- name: Check if the OS is RHEL 7.x
+  assert:
+    that:
+      - "{{ ansible_distribution }} == 'RedHat'"
+      - "{{ ansible_distribution_major_version }} == '7'"
+
+- name: Check if the SELinux mode is Enforcing
+  assert:
+    that:
+      - "{{ ansible_selinux.status }} == 'enabled'"
+      - "{{ ansible_selinux.mode }} == 'enforcing'"
+      - "{{ ansible_selinux.config_mode }} == 'enforcing'"
+
+- name: Gather the status of firewalld service
+  command: "{{ item }}"
+  loop:
+    - "systemctl is-enabled firewalld"
+    - "systemctl is-active firewalld"
+  ignore_errors: true
+  changed_when: false
+  register: firewalld_service_stat
+
+- name: Check if the firewalld is enabled and active
+  assert:
+    that:
+      - "{{ item.rc == 0 }}"
+  loop: "{{ firewalld_service_stat.results }}"
+
+- name: Gather the list of installed packages
+  command: "rpm -qa --qf "%{n}\n"
+  ignore_errors: true
+  changed_when: false
+  register: packages_list
+
+- name: Check if the necessary packages are installed
+  assert:
+    that:
+      - "{{ item in packages_list.stdout_lines }}"
+  loop: "{{ rhui_required_packages }}"
+
+# vim:sw=2:ts=2:et:

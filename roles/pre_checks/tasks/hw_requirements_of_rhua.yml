@@ -1,0 +1,12 @@
+---
+- name: Find the partition for /var
+  set_fact:
+    rhua_disk_part_for_var: "{{ '/var' if '/var' in ansible_mounts | map(attribute='mount') else '/' }}"
+
+- name: Check if the size of the partition for /var is enough
+  assert:
+    that:
+      - "'{{ item.mount }}' != '{{ rhua_disk_part_for_var }}' or {{ item.size_total }} >= {{ rhua_hw_req_min_disk_part_var }} * (1024 ** 3)"
+  loop: "{{ ansible_mounts }}"
+
+# vim:sw=2:ts=2:et:
