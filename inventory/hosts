@@ -1,0 +1,11 @@
+[rhui:children]
+rhua
+cds
+
+[rhua]
+rhua.example.com
+
+[cds]
+cds-1.example.com
+cds-2.example.com
+cds-3.example.com
