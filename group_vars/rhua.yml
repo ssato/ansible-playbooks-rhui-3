@@ -1,0 +1,4 @@
+---
+rhua_hw_req_min_size_var: 20  # [GiB]
+
+# vim:sw=2:ts=2:et:
