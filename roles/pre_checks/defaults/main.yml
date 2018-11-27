@@ -11,8 +11,6 @@ rhui_gluster_disk_part_brick: /export
 # 100 GiB (Actually, it depends on how many and what repos to provide for clients.)
 gluster_hw_req_min_disk_part_export: 100
 
-
-
 # .. seealso:: Table 3.1. Required Network Port Settings of the page of the above URL
 rhui_required_ports:
   - "20/tcp"   # ssh

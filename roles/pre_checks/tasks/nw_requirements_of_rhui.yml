@@ -10,7 +10,7 @@
   assert:
     that:
       - "{{ item in nmap_scan_ports.stdout_lines }}"
-  loop: {{ rhui_required_ports }}
+  loop: "{{ rhui_required_ports }}"
 
 - name: Gather the FQDN info
   command: "hostname -f"
@@ -20,6 +20,6 @@
 
 - name:
   assert:
-    that: "'{{ hostname_fqdn.stdout }}' == '{{ public_fqdn | default(inventory_hostname) }}'" 
+    that: "'{{ hostname_fqdn.stdout }}' == '{{ public_fqdn | default(inventory_hostname) }}'"
 
 # vim:sw=2:ts=2:et:

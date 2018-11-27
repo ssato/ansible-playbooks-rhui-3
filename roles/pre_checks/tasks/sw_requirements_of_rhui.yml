@@ -8,9 +8,9 @@
 - name: Check if the SELinux mode is Enforcing
   assert:
     that:
-      - "{{ ansible_selinux.status }} == 'enabled'"
-      - "{{ ansible_selinux.mode }} == 'enforcing'"
-      - "{{ ansible_selinux.config_mode }} == 'enforcing'"
+      - "{{ ansible_selinux.status == 'enabled' }}"
+      - "{{ ansible_selinux.mode == 'enforcing' }}"
+      - "{{ ansible_selinux.config_mode == 'enforcing' }}"
 
 - name: Gather the status of firewalld service
   command: "{{ item }}"

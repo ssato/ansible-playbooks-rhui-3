@@ -8,7 +8,7 @@
 - name: Check if the required port is open by the firewall configuration
   assert:
     that:
-      - "{{ item }} in {{ nmap_scan_ports.stdout_lines }}"
-  loop: {{ required_ports }}
+      - "{{ item in nmap_scan_ports.stdout_lines }}"
+  loop: "{{ required_ports }}"
 
 # vim:sw=2:ts=2:et:

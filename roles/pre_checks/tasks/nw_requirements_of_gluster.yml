@@ -3,6 +3,6 @@
   assert:
     that:
       - "{{ item in nmap_scan_ports.stdout_lines }}"
-  loop: {{ gluster_required_ports }}
+  loop: "{{ gluster_required_ports }}"
 
 # vim:sw=2:ts=2:et:
