@@ -1,6 +1,6 @@
 #! /bin/bash
 set -ex
-cd ..  # Move to the top dir.
+#cd ${0%/*}/  # Move to the top dir.
 
 playbooks=${1:-*.yml}
 inventory=inventory/hosts

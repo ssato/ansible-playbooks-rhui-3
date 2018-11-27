@@ -6,7 +6,7 @@ Ansible playbooks to install and setup RHUI v3 servers.
 
 ## Requirements
 
-None
+- nmap: to scan network ports of RHUA, CDS, Gluster nodes and others
 
 ## Role Variables
 

@@ -9,3 +9,8 @@ rhua.example.com
 cds-1.example.com
 cds-2.example.com
 cds-3.example.com
+
+[gluster]
+cds-1.example.com
+cds-2.example.com
+cds-3.example.com
