@@ -4,6 +4,7 @@
   ignore_errors: true
   changed_when: false
   register: nmap_scan_ports
+  delegate_to: localhost
 
 - name: Check if the required port is open by the firewall configuration
   assert:
