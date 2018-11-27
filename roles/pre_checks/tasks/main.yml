@@ -1,7 +1,7 @@
 ---
-- include: hw_requirements.yml
-- include: sw_requirements.yml
-- include: nw_requirements.yml
-- include: others.yml
+- include_tasks: hw_requirements.yml
+- include_tasks: sw_requirements.yml
+- include_tasks: nw_requirements.yml
+- include_tasks: others.yml
 
 # vim:sw=2:ts=2:et:

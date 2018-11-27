@@ -1,14 +1,14 @@
 ---
-- include: sw_requirements_of_rhui.yml
-- include: sw_requirements_of_rhua.yml
+- include_tasks: sw_requirements_of_rhui.yml
+- include_tasks: sw_requirements_of_rhua.yml
   when:
     - 'rhua' in group_names
 
-- include: sw_requirements_of_cds.yml
+- include_tasks: sw_requirements_of_cds.yml
   when:
     - 'cds' in group_names
 
-- include: sw_requirements_of_gluster.yml
+- include_tasks: sw_requirements_of_gluster.yml
   when:
     - 'cds' in group_names
     - 'gluster' in group_names
