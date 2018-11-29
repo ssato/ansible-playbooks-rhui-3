@@ -1,0 +1,14 @@
+---
+# ISO   mages:
+#
+# - RHEL 7.x: https://access.redhat.com/downloads/content/69/ver=/rhel---7/7.6/x86_64/product-software
+# - RHUI 3.x: https://access.redhat.com/downloads/content/147/ver=3/rhel---7/3.0/x86_64/product-software
+# - RHGS (Gluster Storage) 3.x: https://access.redhat.com/downloads/content/186/ver=3/rhel---7/3.4/x86_64/product-software
+#
+iso_images_dir: /var/www/html/pub
+
+rhel_iso_image_name: rhel-server-7.6-x86_64-dvd.iso
+rhui_iso_image_name: RHUI-3.0-RHEL-7-20181106.0-RHUI-x86_64-dvd1.iso
+rhgs_iso_image_name: rhgs-3.4-rhel-7-x86_64-dvd-1.iso
+
+# vim:sw=2:ts=2:et:

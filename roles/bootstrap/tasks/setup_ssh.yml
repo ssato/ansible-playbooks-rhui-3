@@ -1,0 +1,17 @@
+---
+- name: Check if ssh key was generated before
+  command: "test -f ~/.ssh/id_rsa"
+  ignore_errors: true
+  changed_when: false
+  register: ssh_key_found
+
+- name: Generate ssh key
+  command: "ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa"
+  when:
+    - ssh_key_found|failed
+
+- name: Transfer ssh pub key to other hosts
+  command: "ssh-copy-id -f {{ item }}"
+  loop: "{{ groups['cds'] }}"
+
+# vim:sw=2:ts=2:et:
