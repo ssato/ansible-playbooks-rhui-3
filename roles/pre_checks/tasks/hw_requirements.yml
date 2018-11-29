@@ -2,11 +2,11 @@
 - include_tasks: hw_requirements_of_rhui.yml
 - include_tasks: hw_requirements_of_rhua.yml
   when:
-    - 'rhua' in group_names
+    - in('rhua', group_names)
 
 - include_tasks: hw_requirements_of_gluster.yml
   when:
-    - 'cds' in group_names
-    - 'gluster' in group_names
+    - in('cds', group_names)
+    - in('gluster', group_names)
 
 # vim:sw=2:ts=2:et:
