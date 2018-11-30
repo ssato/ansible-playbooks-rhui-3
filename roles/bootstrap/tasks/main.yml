@@ -1,5 +1,8 @@
 ---
 - include_tasks: setup_ssh.yml
+  when:
+    - in('rhua', group_names)
+
 - include_tasks: setup_yum_repos.yml
 
 # vim:sw=2:ts=2:et:
