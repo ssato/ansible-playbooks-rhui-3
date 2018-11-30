@@ -4,6 +4,8 @@ Ansible playbooks to install and setup RHUI v3 servers.
 
 <!-- [![Build Status](https://img.shields.io/travis/ssato/ansible-role-rhui-3-rhua-pre-checks.png)](https://travis-ci.org/ssato/ansible-role-rhui-3-rhua-pre-checks) -->
 
+.. note:: This playbook should be run on RHUA host.
+
 ## Requirements
 
 - nmap: to scan network ports of RHUA, CDS, Gluster nodes and others
