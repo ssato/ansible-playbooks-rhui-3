@@ -2,6 +2,9 @@
 rhua
 cds
 
+[repo_server]
+rhua.example.com
+
 [rhua]
 rhua.example.com
 
