@@ -10,8 +10,16 @@
   when:
     - ssh_key_found|failed
 
-- name: Transfer ssh pub key to other hosts
+- name: Transfer ssh pub key
   command: "ssh-copy-id -f {{ item }}"
   loop: "{{ groups['cds'] }}"
+  when:
+    - use_ssh_tunnel is defined
+    - use_ssh_tunnel
+
+- name: Add ssh authorized key
+  authorized_keys:
+    user: root
+    key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
 
 # vim:sw=2:ts=2:et:
