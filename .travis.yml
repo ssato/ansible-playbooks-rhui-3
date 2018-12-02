@@ -1,0 +1,12 @@
+---
+language: python
+install:
+  - pip install -r requirements.txt
+
+before_script:
+  - ansible --version
+
+script:
+  - ./tests/test.sh
+
+# vim:sw=2:ts=2:et:
