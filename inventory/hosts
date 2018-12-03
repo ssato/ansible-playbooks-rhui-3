@@ -2,8 +2,11 @@
 rhua
 cds
 
+[gatewayed:children]
+rhui
+
 [bastion]
-rhua.example.com
+bastion
 
 [repo_server]
 rhua.example.com
