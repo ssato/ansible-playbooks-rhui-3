@@ -8,6 +8,6 @@
 - name: Generate ssh key as needed
   command: "ssh-keygen -P '' -f {{ ssh_auth_key }}"
   when:
-    - ssh_key_found|failed
+    - ssh_key_found is failed
 
 # vim:sw=2:ts=2:et:
