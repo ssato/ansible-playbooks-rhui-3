@@ -1,0 +1,5 @@
+---
+- name: Check if ssh access is OK
+  ping:
+
+# vim:sw=2:ts=2:et:

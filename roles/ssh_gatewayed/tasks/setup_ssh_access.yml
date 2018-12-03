@@ -1,0 +1,7 @@
+---
+- name: Add ssh authorized key
+  authorized_key:
+    user: root
+    key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+
+# vim:sw=2:ts=2:et:
