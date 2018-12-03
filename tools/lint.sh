@@ -9,7 +9,7 @@ ansible_lint="$(which ansible-lint-3 2>/dev/null || which ansible-lint 2>/dev/nu
 yamllint --strict $(find . -type f | grep -E '.yml$')
 
 for p in ${playbooks:?}; do
-        ${ansible_lint:?} -vvv $p
+        ${ansible_lint:?} -vvv $p -x ANSIBLE0006
         ansible-playbook -i ${inventory:?} -vvv $p --syntax-check
 done
 
