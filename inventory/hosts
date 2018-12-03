@@ -8,8 +8,12 @@ rhui
 [bastions]
 bastion
 
+[yum_repo_hosts:children]
+yum_repo_server
+yum_repo_clients
+
 [yum_repo_server]
-rhua.example.com
+cds-1.example.com
 
 [yum_repo_clients:children]
 rhui
