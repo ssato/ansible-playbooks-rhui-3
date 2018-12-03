@@ -5,8 +5,8 @@
   changed_when: false
   register: ssh_key_found
 
-- name: Generate ssh key
-  command: "ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa"
+- name: Generate ssh key as needed
+  command: "ssh-keygen -P '' -f ~/.ssh/id_rsa"
   when:
     - ssh_key_found|failed
 
