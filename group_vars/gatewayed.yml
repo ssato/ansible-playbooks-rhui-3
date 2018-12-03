@@ -1,0 +1,5 @@
+---
+# .. note:: The appropriate configuration of the gateway host (bastion) should be in ~/.ssh/config, etc.
+# .. note:: The hostname 'bastion' below must be the hostname found in the group 'bastion' in inventory/hosts.
+# .. seealso:: https://docs.ansible.com/ansible/latest/reference_appendices/faq.html#how-do-i-configure-a-jump-host-to-access-servers-that-i-have-no-direct-access-to
+ansible_ssh_common_args: '-o ProxyCommand="ssh -W %h:%p -q bastion"'
