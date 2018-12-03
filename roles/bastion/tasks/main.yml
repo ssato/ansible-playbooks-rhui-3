@@ -1,0 +1,5 @@
+---
+- include_tasks: init_ssh.yml
+- include_tasks: setup_ssh.yml
+
+# vim:sw=2:ts=2:et:

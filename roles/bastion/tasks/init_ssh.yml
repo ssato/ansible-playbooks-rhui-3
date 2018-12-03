@@ -1,0 +1,13 @@
+---
+- name: Check if ssh key exists
+  command: "test -f {{ ssh_auth_key }}"
+  ignore_errors: true
+  changed_when: false
+  register: ssh_key_found
+
+- name: Generate ssh key as needed
+  command: "ssh-keygen -P '' -f {{ ssh_auth_key }}"
+  when:
+    - ssh_key_found|failed
+
+# vim:sw=2:ts=2:et:

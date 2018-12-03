@@ -1,0 +1,4 @@
+---
+ssh_auth_key: ~/.ssh/id_rsa.pub
+
+# vim:sw=2:ts=2:et:
