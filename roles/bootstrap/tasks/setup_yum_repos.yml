@@ -1,8 +1,0 @@
----
-- name: Generate Yum repo files
-  template:
-    src: yum_repo.j2
-    dest: "{{ item.dest }}"
-  loop: "{{ yum_repos }}"
-
-# vim:sw=2:ts=2:et:
