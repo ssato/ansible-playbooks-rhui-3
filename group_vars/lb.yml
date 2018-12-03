@@ -1,3 +1,5 @@
 ---
+# .. note:: LB nodes work w/ less memory from my experiences.
+rhui_hw_req_min_ram: 4096
 
 # vim:sw=2:ts=2:et:
