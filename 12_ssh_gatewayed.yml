@@ -1,0 +1,7 @@
+---
+- hosts: gatewayed
+  gather_facts: false
+  roles:
+    - ssh_gatewayed
+
+# vim:sw=2:ts=2:et:

@@ -1,0 +1,12 @@
+---
+- hosts: yum_repo_hosts
+  gather_facts: false
+  roles:
+    - yum_repo_hosts
+
+- hosts: yum_repo_server
+  gather_facts: false
+  roles:
+    - yum_repo_server
+
+# vim:sw=2:ts=2:et:
