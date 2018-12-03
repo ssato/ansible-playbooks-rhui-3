@@ -2,7 +2,7 @@
 
 Ansible playbooks to install and setup RHUI v3 servers.
 
-<!-- [![Build Status](https://img.shields.io/travis/ssato/ansible-role-rhui-3-rhua-pre-checks.png)](https://travis-ci.org/ssato/ansible-role-rhui-3-rhua-pre-checks) -->
+[![Build Status](https://img.shields.io/travis/ssato/ansible-playbooks-rhui-3.png)](https://travis-ci.org/ssato/)nsible-playbooks-rhui-3)
 
 .. note:: This playbook should be run on RHUA host.
 
