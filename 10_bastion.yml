@@ -1,0 +1,7 @@
+---
+- hosts: bastion
+  gather_facts: false
+  roles:
+    - bastion
+
+# vim:sw=2:ts=2:et:
