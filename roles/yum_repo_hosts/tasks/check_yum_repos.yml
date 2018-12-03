@@ -1,5 +1,7 @@
 ---
 - name: Check if access to Yum repos are OK
   command: "yum repolist --disablerepo '*' {% for repo in yum_repos %}--enablerepo {{ repo.id }} {% endfor %}"
+  ignore_errors: true
+  changed_when: false
 
 # vim:sw=2:ts=2:et:
