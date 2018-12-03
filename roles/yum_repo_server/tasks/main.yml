@@ -1,0 +1,4 @@
+---
+- include_tasks: setup_yum_repo_server.yml
+
+# vim:sw=2:ts=2:et:

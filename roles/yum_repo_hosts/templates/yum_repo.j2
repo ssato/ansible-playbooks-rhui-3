@@ -1,0 +1,7 @@
+# {{ ansible_managed }}
+[{{ item.id }}]
+name={{ item.name }}
+baseurl={{ item.protocol|default('http') }}://{{ item.server_fqdn|default(groups['yum_repo_server'][0]) }}/{{ item.relative_path }}/
+gpgkey={{ item.gpgkey|default('file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release') }}
+gpgcheck={{ item.gpgcheck|default('1') }}
+enabled={{ item.enabled|default('1') }}

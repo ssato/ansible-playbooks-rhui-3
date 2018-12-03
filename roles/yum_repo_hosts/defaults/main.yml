@@ -1,0 +1,38 @@
+---
+# Download ISO images:
+#
+# - RHEL 7.x: https://access.redhat.com/downloads/content/69/ver=/rhel---7/7.6/x86_64/product-software
+# - RHUI 3.x: https://access.redhat.com/downloads/content/147/ver=3/rhel---7/3.0/x86_64/product-software
+# - RHGS (Gluster Storage) 3.x: https://access.redhat.com/downloads/content/186/ver=3/rhel---7/3.4/x86_64/product-software
+#
+iso_images_dir: /root/setup/
+iso_mount_topdir: /var/www/html
+
+yum_repos:
+  - id: rhel-7.6-server-rpms
+    name: RHEL 7.6 Server RPMs from ISO image
+    # server_fqdn:
+    relative_path: pub/rhel-7.6/
+    iso_image: rhel-server-7.6-x86_64-dvd.iso
+    dest: /etc/yum.repos.d/rhel-7.6-server-iso.repo
+    # gpgkey:
+    # gpgcheck:
+    # enabled: 1
+    # options:
+    #   - metadata_expire: 7d
+    #   - skip_if_unavailable: "False"
+
+  - id: rhui-3.0.x-for-rhel-7-server-rpms
+    name: RHUI 3.0.x RPMs for RHEL 7 Server from ISO image
+    relative_path: pub/rhui-3.0.x/
+    iso_image: RHUI-3.0-RHEL-7-20181106.0-RHUI-x86_64-dvd1.iso
+    dest: /etc/yum.repos.d/rhui-3.0.x-iso.repo
+
+  - id: rhgs-3.4-for-rhel-7-server-rpms
+    name: RHGS (Gluster Storage) 3.4 RPMs for RHEL 7 Server from ISO image
+    relative_path: pub/rhgs-3.4/
+    iso_image: rhgs-3.4-rhel-7-x86_64-dvd-1.iso
+    dest: /etc/yum.repos.d/rhgs-3.4-iso.repo
+    enabled: 0
+
+# vim:sw=2:ts=2:et:
