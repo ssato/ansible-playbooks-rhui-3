@@ -1,6 +1,6 @@
 ---
 - name: Ensure rhui-installer and related RPMs are installed
-  package:
+  yum:
     name:
       - rhui-installer
       - "{{ 'glusterfs-fuse' if groups['gluster'] | bool else 'nfs-utils' }}"
