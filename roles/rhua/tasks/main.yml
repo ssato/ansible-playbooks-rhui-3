@@ -1,0 +1,4 @@
+---
+- include_tasks: packages.yml
+
+# vim:sw=2:ts=2:et:

@@ -1,0 +1,16 @@
+---
+- name: Ensure rhui-installer and related RPMs are installed
+  package:
+    name:
+      - rhui-installer
+      - "{{ 'glusterfs-fuse' if groups['gluster'] | bool else 'nfs-utils' }}"
+    state: present
+
+- name: Check if rhui-installer was installed and works
+  command: "rhui-installer --help"
+  changed_when: true
+  register: rhui_installer_help
+
+- debug: var=rhui_installer_help
+
+# vim:sw=2:ts=2:et:
