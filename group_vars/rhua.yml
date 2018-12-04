@@ -8,4 +8,10 @@ rhua_hw_req_min_size_var: 20  # [GiB]
 #         -> [Subscriptions] -> [Download Certificate]
 rhua_entitlement_cert_path: /root/setup/420733075419551695.pem
 
+rhui_cds_lb_hostname: rhui-0.example.com
+
+rhui_tls_city: Shibuya-ku
+rhui_tls_org: Example_com
+rhui_tls_org_unit: Cloud_Dept
+
 # vim:sw=2:ts=2:et:
