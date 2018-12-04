@@ -19,7 +19,7 @@
   changed_when: false
   register: hostname_fqdn
 
-- name:
+- name: Check if FQDN is set
   assert:
     that: "'{{ hostname_fqdn.stdout }}' == '{{ public_fqdn | default(inventory_hostname) }}'"
 
