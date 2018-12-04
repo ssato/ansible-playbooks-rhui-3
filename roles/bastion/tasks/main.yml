@@ -2,5 +2,6 @@
 # .. todo:: Not be required?
 - include_tasks: init_ssh.yml
 - include_tasks: setup_ssh.yml
+- include_tasks: packages.yml
 
 # vim:sw=2:ts=2:et:
