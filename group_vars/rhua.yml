@@ -1,4 +1,11 @@
 ---
 rhua_hw_req_min_size_var: 20  # [GiB]
 
+# .. note:: You must edit the following variable.
+#
+# The certificate is available from https://access.redhat.com:
+#   Login -> [Subscriptions] -> [Systems] -> go to the page of your any RHUI system
+#         -> [Subscriptions] -> [Download Certificate]
+rhua_entitlement_cert_path: /root/setup/420733075419551695.pem
+
 # vim:sw=2:ts=2:et:
