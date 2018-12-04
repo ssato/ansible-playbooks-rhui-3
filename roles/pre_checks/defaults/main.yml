@@ -3,7 +3,7 @@
 # .. seealso:: https://access.redhat.com/documentation/en-us/red_hat_update_infrastructure/3.0/html/system_administrators_guide/prerequisites
 rhui_hw_req_min_ncpus: 2
 rhui_hw_req_min_ram: 4096
-rhui_hw_req_min_disk_part_sysroot: 20  # 10 GiB
+rhui_hw_req_min_disk_part_sysroot: 10  # 10 GiB
 
 rhua_hw_req_min_disk_part_var: 20
 
