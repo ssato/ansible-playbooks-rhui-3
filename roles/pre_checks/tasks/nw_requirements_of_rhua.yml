@@ -1,14 +1,16 @@
 ---
-- assert:
+
+- debug: var=rhua_entitlement_cert_path
+
+- name: Check if nessary variables for RHUA are defined and have some value
+  assert:
     that:
       - "{{ rhua_entitlement_cert_path is defined }}"
-      - "{{ rhua_entitlement_cert_path | bool }}"
 
 - name: Check if the required port is open by the firewall configuration
   assert:
     that:
-      - "{{ item in nmap_scan_ports.stdout_lines }}"
-  loop: "{{ rhua_required_ports }}"
+      - "{{ nmap_scan_ports.stdout | regex_search(rhua_required_ports | join(' .*'), multiline=True) }}"
 
 - name: Try to connect to Red Hat CDN
   command: "curl -v --connect-timeout 5 --max-time 20 --cacert /etc/rhsm/ca/redhat-uep.pem --cert {{ rhua_entitlement_cert_path }} {{ rhui_red_hat_cdn_check_url }}"

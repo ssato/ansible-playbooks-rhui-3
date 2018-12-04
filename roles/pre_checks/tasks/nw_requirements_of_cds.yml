@@ -2,7 +2,6 @@
 - name: Check if the required port is open by the firewall configuration
   assert:
     that:
-      - "{{ item in nmap_scan_ports.stdout_lines }}"
-  loop: "{{ cds_required_ports }}"
+      - "{{ nmap_scan_ports.stdout | regex_search(cds_required_ports | join(' .*'), multiline=True) }}"
 
 # vim:sw=2:ts=2:et:

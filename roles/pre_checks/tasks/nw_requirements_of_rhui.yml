@@ -6,11 +6,12 @@
   register: nmap_scan_ports
   delegate_to: bastion
 
+# - debug: var=nmap_scan_ports
+
 - name: Check if the required port is open by the firewall configuration
   assert:
     that:
-      - "{{ item in nmap_scan_ports.stdout_lines }}"
-  loop: "{{ rhui_required_ports }}"
+      - "{{ nmap_scan_ports.stdout | regex_search(rhui_required_ports | join(' .*'), multiline=True) }}"
 
 - name: Gather the FQDN info
   command: "hostname -f"
