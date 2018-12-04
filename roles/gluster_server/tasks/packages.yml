@@ -12,7 +12,7 @@
 
 - name: Check if storage related RPMs were installed and work
   command: "gluster help"
-  changed_when: true
+  changed_when: false
   register: storage_command_help
 
 - debug: var=storage_command_help
