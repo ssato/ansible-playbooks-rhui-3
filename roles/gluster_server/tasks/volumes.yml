@@ -8,6 +8,9 @@
   gluster_peer:
     state: present
     nodes: "{{ groups['gluster'] }}"
+  when:
+      - "{{ inventory_hostname == groups['gluster'][0] }}"
+
 
 - name: Ensure storage volume is created and available
   gluster_volume:
@@ -18,5 +21,7 @@
     state: present
     options:
       quorum-type: auto
+  when:
+      - "{{ inventory_hostname == groups['gluster'][0] }}"
 
 # vim:sw=2:ts=2:et:
