@@ -10,6 +10,7 @@
   assert:
     that:
       - "{{ item.rc == 0 }}"
+    fail_msg: "Put ISO images ( {{ yum_repos | map(attribute='iso_image') | join(', ') }} ) in {{ iso_images_dir }}."
   loop: "{{ find_iso_images.results }}"
 
 - name: Mount the ISO images
