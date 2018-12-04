@@ -1,0 +1,6 @@
+---
+- hosts: rhui
+  roles:
+    - pre_checks
+
+# vim:sw=2:ts=2:et:
