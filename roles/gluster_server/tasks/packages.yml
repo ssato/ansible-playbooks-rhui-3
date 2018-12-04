@@ -1,0 +1,20 @@
+---
+# .. seealso:: roles/yum_repo_hosts/defaults/main.yml
+- name: Ensure Gluster related RPMs are installed
+  yum:
+    name:
+      - glusterfs-server
+      - glusterfs-cli
+      - rh-rhua-selinux-policy
+    disablerepo: 'rhel-*'
+    enablerepo: 'rhgs-3*'
+    state: present
+
+- name: Check if storage related RPMs were installed and work
+  command: "gluster --help"
+  changed_when: true
+  register: storage_command_help
+
+- debug: var=storage_command_help
+
+# vim:sw=2:ts=2:et:

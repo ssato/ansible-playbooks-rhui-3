@@ -1,0 +1,6 @@
+---
+rhui_storage_gluster_volume_name: rhui_content_0
+rhui_storage_gluster_brick_dir: /export/bricks
+rhui_storage_gluster_volume_mnt: /var/lib/rhui/remote_share
+
+# vim:sw=2:ts=2:et:

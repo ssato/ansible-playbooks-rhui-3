@@ -1,0 +1,8 @@
+---
+- name: Ensure Gluster service is enabled and started
+  service:
+    name: glusterd
+    state: started
+    enabled: true
+
+# vim:sw=2:ts=2:et:

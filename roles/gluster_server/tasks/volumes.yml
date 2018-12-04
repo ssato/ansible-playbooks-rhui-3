@@ -1,0 +1,22 @@
+---
+- name: Ensure bricks dir exists
+  file:
+    path: "{{ rhui_storage_gluster_brick_dir }}"
+    state: directory
+
+- name: Ensure storage pool is created
+  gluster_peer:
+    state: present
+    nodes: "{{ groups['gluster'] }}"
+
+- name: Ensure storage volume is created and available
+  gluster_volume:
+    name: "{{ rhui_storage_gluster_volume_name }}"
+    bricks: "{{ rhui_storage_gluster_brick_dir }}"
+    replicas: "{{ groups['gluster'] | length }}"
+    cluster: "{{ groups['gluster']  }}"
+    state: present
+    options:
+      quorum-type: auto
+
+# vim:sw=2:ts=2:et:

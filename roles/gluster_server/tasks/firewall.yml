@@ -1,0 +1,10 @@
+---
+- name: Ensure Gluster related network ports are open and not blocked by firewalld
+  firewalld:
+    zone: public  # Default.
+    service: glusterfs
+    state: enabled
+    permanent: true
+    immediate: true
+
+# vim:sw=2:ts=2:et:
