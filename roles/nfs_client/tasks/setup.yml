@@ -1,0 +1,6 @@
+---
+- name: Check if ssh key exists
+  command: "setsebool -P httpd_use_nfs on"
+  changed_when: false
+
+# vim:sw=2:ts=2:et:

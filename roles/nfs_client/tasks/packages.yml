@@ -1,0 +1,10 @@
+---
+# .. seealso:: roles/yum_repo_hosts/defaults/main.yml
+- name: Ensure Gluster related RPMs are installed
+  yum:
+    name:
+      - nfs-utils
+    disablerepo: 'rhgs-3*'
+    state: present
+
+# vim:sw=2:ts=2:et:
