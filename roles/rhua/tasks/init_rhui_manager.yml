@@ -1,0 +1,16 @@
+---
+- name: Get the admin's password from answer file
+  command: "awk '/rhui_manager_password:/ { print $2; }' /etc/rhui-installer/answers.yaml"
+  changed_when: false
+  register: rhui_manager_password
+
+- name: Run rhui-manager once to cache credential
+  expect:
+    command: rhui-manager
+    responses:
+      RHUI Password: "{{ rhui_manager_password.stdout }}"
+      rhui (home) =>: r
+      rhui (repo) =>: q
+    no_log: true
+
+# vim:sw=2:ts=2:et:
