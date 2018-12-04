@@ -4,12 +4,12 @@ rhui_cds_lb_hostname:
 
 # .. note:: Possible choices are: nfs4, nfs and glusterfs
 # .. seealso:: usr/share/rhui-installer/hooks/pre/10-validate_gluster.rb in rhui-installer-base rpm
-#rhui_storage_type:
+# rhui_storage_type:
 
 # .. note:: Set the following variable if you want to use NFS.
-#rhui_storage_mnt: nfs.example.com:/rhui_data
+# rhui_storage_mnt: nfs.example.com:/rhui_data
 
-#rhui_rhua_mount_options:
+# rhui_rhua_mount_options:
 
 # .. note:: These TLS cert parameters should be customized as needed.
 rhui_tls_country: JP
@@ -17,8 +17,8 @@ rhui_tls_state: Tokyo
 rhui_tls_city:
 rhui_tls_org:
 rhui_tls_org_unit:
-#rhui_tls_city: Shibuya-ku
-#rhui_tls_org: Example_com
-#rhui_tls_org_unit: Cloud_Dept
+# rhui_tls_city: Shibuya-ku
+# rhui_tls_org: Example_com
+# rhui_tls_org_unit: Cloud_Dept
 
 # vim:sw=2:ts=2:et:
