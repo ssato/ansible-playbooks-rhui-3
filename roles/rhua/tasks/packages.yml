@@ -3,7 +3,7 @@
   yum:
     name:
       - rhui-installer
-      - "{{ 'glusterfs-fuse' if groups['gluster'] | bool else 'nfs-utils' }}"
+      - "{{ 'glusterfs-fuse' if is_gluster_used else 'nfs-utils' }}"
     state: present
 
 - name: Check if rhui-installer was installed and works

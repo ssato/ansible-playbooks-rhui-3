@@ -1,0 +1,5 @@
+---
+- set_fact:
+    is_gluster_used: "{{ groups['gluster'] | bool }}"
+
+# vim:sw=2:ts=2:et:
