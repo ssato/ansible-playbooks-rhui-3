@@ -12,7 +12,7 @@
 - name: Check if the size of the / partition is enough
   assert:
     that:
-      - "{{ item.mount }} != '/' or {{ item.size_total }} >= {{ rhui_hw_req_min_disk_part_sysroot }} * (1024 ** 3)"
+      - "'{{ item.mount }}' != '/' or {{ item.size_total }} >= {{ rhui_hw_req_min_disk_part_sysroot }} * (1024 ** 3)"
   loop: "{{ ansible_mounts }}"
 
 # vim:sw=2:ts=2:et:

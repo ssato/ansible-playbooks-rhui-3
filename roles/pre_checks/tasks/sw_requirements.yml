@@ -3,15 +3,15 @@
 - include_tasks: sw_requirements_of_rhua.yml
   when:
     # - 'rhua' in group_names  # This causes an YAML syntax error.
-    - in('rhua', group_names)
+    - "{{ 'rhua' in group_names }}"
 
 - include_tasks: sw_requirements_of_cds.yml
   when:
-    - in('cds', group_names)
+    - "{{ 'cds' in group_names }}"
 
 - include_tasks: sw_requirements_of_gluster.yml
   when:
-    - in('cds', group_names)
-    - in('gluster', group_names)
+    - "{{ 'cds' in group_names }}"
+    - "{{ 'gluster' in group_names }}"
 
 # vim:sw=2:ts=2:et:
