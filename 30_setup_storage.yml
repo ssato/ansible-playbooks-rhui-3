@@ -1,0 +1,14 @@
+---
+- hosts: gluster
+  gather_facts: false
+  roles:
+    - gluster_server
+
+- hosts: rhui
+  gather_facts: false
+  roles:
+    - name: nfs_client
+      when:
+        - "{{ not groups['gluster'] }}"
+
+# vim:sw=2:ts=2:et:
