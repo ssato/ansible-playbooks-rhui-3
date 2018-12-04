@@ -11,7 +11,7 @@
     state: present
 
 - name: Check if storage related RPMs were installed and work
-  command: "gluster --help"
+  command: "gluster help"
   changed_when: true
   register: storage_command_help
 
