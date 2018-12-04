@@ -1,0 +1,6 @@
+---
+- name: Run rhui-installer for initial setup
+  command: "rhui-installer -v {{ rhui_installer_opts }}"
+  changed_when: false
+
+# vim:sw=2:ts=2:et:

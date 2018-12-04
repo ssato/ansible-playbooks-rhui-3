@@ -1,5 +1,24 @@
 ---
+- name: Check if necessary variables are set
+  assert:
+    that:
+      - "{{ item | bool }}"
+  loop:
+    - "{{ rhui_cds_lb_hostname }}"
+
 - set_fact:
     is_gluster_used: "{{ groups['gluster'] | bool }}"
+    rhui_storage_mnt: "{{ '%s:%s' % (groups['gluster'] | first, rhui_storage_gluster_volume_name) if is_gluster_used else '%s' % rhui_storage_mnt }}"
+    rhui_storage_mnt_opts: "{{ 'rw,_netdev,backup-volfile-servers=%s' % (groups['gluster'][1:] | join(':'), ) if is_gluster_used else 'rw' }}"
+    rhui_installer_opts:
+      - "--cds-lb-hostname {{ rhui_cds_lb_hostname }}"
+      - "--remote-fs-type={{ rhui_storage_type | default('glusterfs' if is_gluster_used else 'nfs4') }}"
+      - "--remote-fs-server={{ rhui_storage_mnt }}"
+      - "--rhua-mount-options={{ rhui_storage_mnt_opts }}"
+      - "--certs-country {{ rhui_tls_country }}"
+      - "--certs-state {{ rhui_tls_state }}"
+      - "--certs-city {{ rhui_tls_city|default('Tokyo') }}"
+      - "--certs-org {{ rhui_tls_org }}"
+      - "--certs-org-unit {{ rhui_tls_org_unit }}"
 
 # vim:sw=2:ts=2:et:
